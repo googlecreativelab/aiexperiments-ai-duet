@@ -14,11 +14,11 @@
 # limitations under the License.
 # 
 
-import magenta.models.basic_rnn.basic_rnn_generator as basic_rnn_generator
-from magenta.music import sequence_generator_bundle
-from magenta.protobuf import generator_pb2
-from magenta.music import midi_io
-from magenta.models.shared.melody_rnn_generate import _steps_to_seconds
+import third_party.magenta.models.basic_rnn.basic_rnn_generator as basic_rnn_generator
+from third_party.magenta.music import sequence_generator_bundle
+from third_party.magenta.protobuf import generator_pb2
+from third_party.magenta.music import midi_io
+from third_party.magenta.models.shared.melody_rnn_generate import _steps_to_seconds
 import os
 import tempfile
 
