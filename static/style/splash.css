@@ -1,0 +1,222 @@
+@import 'common.scss';
+
+$topMargin: 50px;
+
+#splash {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: 100;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	color: white;
+	transition: opacity 0.2s;
+
+	&.disappear {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#learnMore {
+		margin-top: $topMargin;
+		font-size: 18px;
+		display: block;
+		// @mixin yellowLink;
+	}
+
+	#titleContainer {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 80%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		min-width: 300px;
+
+		#title {
+			line-height: 60px;
+			font-size: 65px;
+			letter-spacing: 1px;
+			font-weight: normal;
+		}
+
+		#subTitle {
+			margin-top: $topMargin;
+			letter-spacing: 0.8px;
+			line-height: 30px;
+			font-size: 20px;
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			font-weight: normal;
+		}
+
+		$loaderWidth: 200px;
+		$loaderHeight: 60px;
+
+		#loader {
+			position: relative;
+			margin-top: $topMargin;
+			background-color: black;
+			border: 2px solid $orange;
+			width: $loaderWidth;
+			height: $loaderHeight;
+			margin-left: auto;
+			margin-right: auto;
+			text-transform: uppercase;
+
+			&.clickable {
+				cursor: pointer;
+
+				transition: transform 0.1s;
+
+				&:hover {
+					transform: scale(1.1);
+				}
+
+				#fillText:active {
+					color: black!important;
+					background-color: $orange;
+
+					#piano {
+						filter: brightness(0);
+					}
+				}
+			}
+
+			#loaderText {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				color: black;
+				background-color: $orange;
+			}
+
+			#fill {
+				position: absolute;
+				height: 100%;
+				width: 0%;
+				overflow: hidden;
+				background-color: black;
+
+
+				#fillText {
+					width: $loaderWidth;
+					height: 100%;
+					color: $orange;
+
+					$imgWidth: 40px;
+					$margin : 52px;
+
+					* {
+						position: absolute;
+						top: 0px;
+					}
+
+					#play {
+						right: $margin;
+					}
+
+					#piano {
+						left: $margin;
+						width: $imgWidth;
+						height: 100%;
+						background-image : url(../images/keyboard_icon.svg);
+						background-position: center center;
+						background-repeat: no-repeat;
+					}
+				}
+			}
+
+			#loaderText, #fillText {
+				line-height: $loaderHeight;
+				font-size: 22px;
+				text-align: center;
+				font-weight: normal;
+			}
+		}
+	}
+
+	#buildWith {
+		margin-top: $topMargin;
+	}
+
+	$badgeWidth : 80px;
+	$badgeHeight: 50px;
+	$badgeMargin : 20px;
+	$badegOpacity: 0.7;
+
+	#aiExperiments, #googleFriends {
+		width: $badgeWidth;
+		height: $badgeHeight;
+		position: absolute;
+		bottom: $badgeMargin;
+		opacity: $badegOpacity;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+
+	#aiExperiments {
+		left: $badgeMargin;
+		background-image: url(../images/badgeAI_master.svg);
+
+		&:hover {
+			opacity: 1;
+
+			&:active {
+				opacity: 0.3;
+			}
+		}
+	}
+
+	#googleFriends {
+		cursor: initial;
+		left: $badgeWidth + $badgeMargin * 3;
+		background-image: url(../images/badgeFriends_master.svg);	
+	}
+
+	#badgeBreak{
+		$breakHeight: $badgeHeight * 0.8;
+		height: $breakHeight;
+		left: $badgeWidth + $badgeMargin * 1.8;
+		background-color: white;
+		opacity: $badegOpacity / 2;
+		position: absolute;
+		width: 1px;
+		bottom: $badgeMargin + ($badgeHeight - $breakHeight) / 2;
+	}
+
+	#privacyAndTerms {
+		position: absolute;
+		bottom: $badgeMargin;
+		right: $badgeMargin;
+		width: auto;
+		font-weight: normal;
+
+		* {
+			height: 14px;
+			line-height: 14px;
+			font-size: 14px;
+			color: white;
+			display: inline;
+			opacity: $badegOpacity;
+			margin: 2px;
+		}
+
+		a {
+			text-decoration: none;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 1;
+
+				&:active {
+					opacity: 0.3;
+				}
+			}
+		}
+	}
+}

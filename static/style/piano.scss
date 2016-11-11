@@ -1,0 +1,11 @@
+@import "common.scss";
+
+$keyboardWidth: 100%;
+
+#Keyboard {
+	width: $keyboardWidth;
+	height: $keyboardHeight;
+	position: absolute;
+	bottom: $bottombarHeight;
+	left: 0px;
+}

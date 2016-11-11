@@ -1,0 +1,9 @@
+@import "common.scss";
+
+#Roll {
+	$bottomSize : $keyboardHeight + $bottombarHeight;
+	width: 100%;
+	height: calc(100% - #{$bottomSize});
+	bottom: $bottomSize;
+	left: 0px;
+}
