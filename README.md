@@ -1,6 +1,14 @@
-A.I. Duet is composed of two parts, the front-end which is in the 'static' folder and the back-end which is in the 'server' folder. The front-end client creates short midi files using the user's input which is sent to the server. The server takes that midi input and continues it using [Magenta](https://github.com/tensorflow/magenta) which is then returned back to the client. 
+Making music using code isn’t a new thing but machine learning gives us a whole new way to go about it. We played the computer tons of examples of melodies and over time it starts to learn relationships between notes and timings. So when you play a few notes the neural network will respond with a short melody, interpreting whatever you give it. It’s like a musical game of call and response. 
 
 This is not an official Google product.
+
+## CREDITS
+
+Built by Yotam Mann and folks on the Magenta and Creative Lab teams at Google.
+
+## OVERVIEW
+
+A.I. Duet is composed of two parts, the front-end which is in the 'static' folder and the back-end which is in the 'server' folder. The front-end client creates short midi files using the user's input which is sent to the server. The server takes that midi input and continues it using [Magenta](https://github.com/tensorflow/magenta) which is then returned back to the client. 
 
 ## FRONT END
 
