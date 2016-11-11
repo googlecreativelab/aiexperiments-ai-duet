@@ -1,0 +1,7 @@
+node_modules
+
+static/build
+
+*.pyc
+
+.DS_Store
