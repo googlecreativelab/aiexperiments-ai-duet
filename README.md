@@ -11,7 +11,7 @@ This is not an official Google product.
 
 ## CREDITS
 
-Built by Yotam Mann with friends on the Magenta and Creative Lab teams at Google. It uses [Tone.js (https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://github.com/tensorflow/magenta) project.
+Built by Yotam Mann with friends on the Magenta and Creative Lab teams at Google. It uses [Tone.js] (https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://github.com/tensorflow/magenta) project.
 
 ## OVERVIEW
 
