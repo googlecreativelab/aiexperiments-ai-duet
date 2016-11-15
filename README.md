@@ -3,7 +3,7 @@ Trade melodies with a neural network.
 
 ## About
 
-This experiment lets you make music through machine learning. A neural network was trained on many examples and it learns about musical concepts, building a map of notes and timings. You just play a few notes, and see how the neural net responds. We’re working on putting the experiment on the web so that anyone can play with it. In the meantime, learn about it by watching the video above.
+This experiment lets you make music through machine learning. A neural network was trained on many examples and it learns about musical concepts, building a map of notes and timings. You just play a few notes, and see how the neural net responds. We’re working on putting the experiment on the web so that anyone can play with it. In the meantime, learn about it by watching the video at this link:
 
 [https://aiexperiments.withgoogle.com/ai-duet](https://aiexperiments.withgoogle.com/ai-duet)
 
@@ -11,7 +11,7 @@ This is not an official Google product.
 
 ## CREDITS
 
-Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta and Creative Lab teams at Google. It uses [Tone.js] (https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://github.com/tensorflow/magenta) project.
+Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta and Creative Lab teams at Google. It uses [Tone.js] (https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://github.com/tensorflow/magenta) project. Check out more experiments at [A.I. Experiments](https://aiexperiments.withgoogle.com).
 
 ## OVERVIEW
 
