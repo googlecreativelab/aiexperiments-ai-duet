@@ -25,7 +25,7 @@ import tempfile
 
 basic_generator = basic_rnn_generator.create_generator(
     None,
-    sequence_generator_bundle.read_bundle_file(os.path.abspath('./basic_rnn.mag')),
+    sequence_generator_bundle.read_bundle_file(os.path.abspath('./third_party/magenta/basic_rnn.mag')),
     4)
 
 def generate_midi(midi_data, total_seconds=10):
