@@ -32,7 +32,7 @@ class Keyboard extends events.EventEmitter{
 		 * The audio key keyboard
 		 * @type {AudioKeys}
 		 */
-		this._keyboard = new AudioKeys({polyphony : 88, rows : 1, octaveControls : false})
+		this._keyboard = new AudioKeys({polyphony : 88, rows : 1, octaveControls : false, rootNote : 48})
 		this._keyboard.down((e) => {
 			this.keyDown(e.note)
 			this._emitKeyDown(e.note)
@@ -45,7 +45,7 @@ class Keyboard extends events.EventEmitter{
 		/**
 		 * The piano interface
 		 */
-		this._keyboardInterface = new KeyboardElement(container, 48, 2)
+		this._keyboardInterface = new KeyboardElement(container, 36, 2)
 		this._keyboardInterface.on('keyDown', (note) => {
 			this.keyDown(note)
 			this._emitKeyDown(note)
@@ -138,7 +138,7 @@ class Keyboard extends events.EventEmitter{
 		const keyWidth = 24
 		let octaves = Math.round((window.innerWidth / keyWidth) / 12)
 		octaves = Math.max(octaves, 2)
-		this._keyboardInterface.resize(48, octaves)
+		this._keyboardInterface.resize(36, octaves)
 	}
 
 	activate(){

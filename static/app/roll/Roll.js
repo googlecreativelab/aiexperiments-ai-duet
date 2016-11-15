@@ -61,7 +61,10 @@ class Roll {
 
 	keyDown(midi, box, ai=false){
 		const selector = ai ? `ai${midi}` : midi
-		if (midi && box && !this._currentNotes.hasOwnProperty(selector)){
+		if (!this._currentNotes.hasOwnProperty(selector)){
+			this._currentNotes[selector] = []
+		}
+		if (midi && box){
 			//translate the box coords to this space
 			const initialScaling = 10000
 			const plane = new THREE.Mesh( geometry, ai ? aiMaterial : material )
@@ -73,23 +76,26 @@ class Roll {
 			plane.position.y = this._element.clientHeight + this._camera.position.y + initialScaling / 2
 			this._scene.add(plane)
 
-			this._currentNotes[selector] = {
+			this._currentNotes[selector].push({
 				plane : plane,
 				position: this._camera.position.y
-			}
+			})
 		}
 
 	}
 
 	keyUp(midi, ai=false){
 		const selector = ai ? `ai${midi}` : midi
-		if (this._currentNotes[selector]){
-			const plane = this._currentNotes[selector].plane
-			const position = this._currentNotes[selector].position
-			delete this._currentNotes[selector]
+		if (this._currentNotes[selector] && this._currentNotes[selector].length){
+			const note = this._currentNotes[selector].shift()
+			const plane = note.plane
+			const position = note.position
 			// get the distance covered
 			plane.scale.y = Math.max(this._camera.position.y - position, 5)
 			plane.position.y = this._element.clientHeight + position + plane.scale.y / 2
+		} else {
+			// console.log(midi)
+			// setTimeout(() => this.keyUp(midi, ai), 100)
 		}
 	}
 

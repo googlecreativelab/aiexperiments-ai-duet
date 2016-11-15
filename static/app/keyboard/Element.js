@@ -139,14 +139,12 @@ class KeyboardElement extends events.EventEmitter {
 				highlight.classList.remove('active')
 				setTimeout(() => highlight.remove(), 2000)
 				//and up on the roll
-				this._roll.keyUp(noteNum, ai)
 			} else {
-				// console.log(this._keys[noteNum].querySelector(query))
-				//try again without ai
+				//try again
 				this.keyUp(noteNum)
 			}
-
 		}	
+		this._roll.keyUp(noteNum, ai)
 	}
 
 	_getNotePosition(key){
