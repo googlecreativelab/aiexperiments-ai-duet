@@ -42,7 +42,7 @@ To install the rest of the back-end requirements (make sure you have python and 
 
 ```bash
 cd server
-pip install -r requirements.txt
+pip2 install -r requirements.txt
 ```
 
 Then run the server:
