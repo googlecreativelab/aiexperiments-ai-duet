@@ -49,9 +49,9 @@ def generate_midi(midi_data, total_seconds=10):
             1, qpm)
     generate_section.end_time_seconds = total_seconds
     # generate_response = generator_map[generator_name].generate(generate_request)
-    generate_response = basic_generator.generate(generate_request)
+    generate_response = basic_generator.generate(generate_request.input_sequence, generate_request.generator_options)
     output = tempfile.NamedTemporaryFile()
     midi_io.sequence_proto_to_midi_file(
-          generate_response.generated_sequence, output.name)
+          generate_response, output.name)
     output.seek(0)
     return output
