@@ -36,7 +36,7 @@ webpack -p
 
 The back-end consists of a [Flask](http://flask.pocoo.org/) server, [TensorFlow](https://www.tensorflow.org/) and [Magenta](https://github.com/tensorflow/magenta). 
 
-First install [TensorFlow](https://www.tensorflow.org/versions/master/get_started/os_setup.html). 
+First install [TensorFlow](https://www.tensorflow.org/versions/master/get_started/os_setup.html) and [Magenta](https://github.com/tensorflow/magenta#installation).
 
 To install the rest of the back-end requirements (make sure you have python and [pip](https://pip.pypa.io/en/stable/installing/) installed):
 
