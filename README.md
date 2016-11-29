@@ -17,6 +17,15 @@ Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta an
 
 A.I. Duet is composed of two parts, the front-end which is in the 'static' folder and the back-end which is in the 'server' folder. The front-end client creates short midi files using the user's input which is sent to the server. The server takes that midi input and continues it using [Magenta](https://github.com/tensorflow/magenta) which is then returned back to the client. 
 
+## DOCKER
+
+```bash
+$ sudo docker build -t ai-duet .
+$ sudo docker run -t -p 8080:8080 ai-duet
+```
+
+You can now play with A.I. Duet at [localhost:8080](http://localhost:8080).
+
 ## FRONT END
 
 To build the client-side javascript, first install [node](https://nodejs.org) and [webpack](https://webpack.github.io/). Then you can install of the dependencies of the project by typing the following in the terminal: 

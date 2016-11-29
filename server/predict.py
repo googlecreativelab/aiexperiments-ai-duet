@@ -14,20 +14,18 @@
 # limitations under the License.
 # 
 
-import sys
-sys.path.append('./third_party')
-import third_party.magenta.models.basic_rnn.basic_rnn_generator as basic_rnn_generator
-from third_party.magenta.music import sequence_generator_bundle
-from third_party.magenta.protobuf import generator_pb2
-from third_party.magenta.music import midi_io
-from third_party.magenta.models.shared.melody_rnn_generate import _steps_to_seconds
+import magenta.models.basic_rnn.basic_rnn_generator as basic_rnn_generator
+from magenta.music import sequence_generator_bundle
+from magenta.protobuf import generator_pb2
+from magenta.music import midi_io
+from magenta.models.shared.melody_rnn_generate import _steps_to_seconds
 import os
 import tempfile
 
 
 basic_generator = basic_rnn_generator.create_generator(
     None,
-    sequence_generator_bundle.read_bundle_file(os.path.abspath('./third_party/magenta/basic_rnn.mag')),
+    sequence_generator_bundle.read_bundle_file(os.path.abspath('./magenta/basic_rnn.mag')),
     4)
 
 def generate_midi(midi_data, total_seconds=10):
