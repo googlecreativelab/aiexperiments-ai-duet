@@ -45,7 +45,7 @@ webpack -p
 
 ### BACK END
 
-If you installed with Docker, the these dependencies have already been installed. To build the back-end separately, follow these instructions: 
+If you installed with Docker, then these dependencies have already been installed. To build the back-end separately, follow these instructions: 
 
 The back-end consists of a [Flask](http://flask.pocoo.org/) server, [TensorFlow](https://www.tensorflow.org/) and [Magenta](https://github.com/tensorflow/magenta). 
 
