@@ -11,13 +11,15 @@ This is not an official Google product.
 
 ## CREDITS
 
-Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta and Creative Lab teams at Google. It uses [Tone.js] (https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://github.com/tensorflow/magenta) project. Check out more at [A.I. Experiments] (https://aiexperiments.withgoogle.com).
+Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta and Creative Lab teams at Google. It uses [Tone.js](https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://github.com/tensorflow/magenta) project. Check out more at [A.I. Experiments](https://aiexperiments.withgoogle.com).
 
 ## OVERVIEW
 
 A.I. Duet is composed of two parts, the front-end which is in the 'static' folder and the back-end which is in the 'server' folder. The front-end client creates short midi files using the user's input which is sent to the server. The server takes that midi input and continues it using [Magenta](https://github.com/tensorflow/magenta) which is then returned back to the client. 
 
 ## DOCKER
+
+[Docker](https://www.docker.com/) is an open-source containerization software which simplifies installation across various OSes. It is the simplest method to build and install both the front-end and back-end components. Once you have Docker installed, you can just run: 
 
 ```bash
 $ sudo docker build -t ai-duet .
@@ -28,7 +30,7 @@ You can now play with A.I. Duet at [localhost:8080](http://localhost:8080).
 
 ## FRONT END
 
-To build the client-side javascript, first install [node](https://nodejs.org) and [webpack](https://webpack.github.io/). Then you can install of the dependencies of the project by typing the following in the terminal: 
+If you installed with Docker, the front-end has already been built. To build the client-side javascript outside of Docker, first install [node](https://nodejs.org) and [webpack](https://webpack.github.io/). Then you can install of the dependencies of the project by typing the following in the terminal: 
 
 ```bash
 cd static
@@ -42,6 +44,8 @@ webpack -p
 ```
 
 ### BACK END
+
+If you installed with Docker, the these dependencies have already been installed. To build the back-end separately, follow these instructions: 
 
 The back-end consists of a [Flask](http://flask.pocoo.org/) server, [TensorFlow](https://www.tensorflow.org/) and [Magenta](https://github.com/tensorflow/magenta). 
 
