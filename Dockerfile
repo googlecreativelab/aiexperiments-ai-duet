@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install webpack -g
 
-RUN pip install -U https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc2-cp27-none-linux_x86_64.whl && \
+RUN pip install -U https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp27-none-linux_x86_64.whl && \
     pip install magenta ipython
 
 COPY ./server/requirements.txt /tmp/
