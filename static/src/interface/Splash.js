@@ -23,7 +23,7 @@ class Splash extends events.EventEmitter{
 	constructor(container){
 
 		super()
-		const splash = document.createElement('div')
+		const splash = this._splash = document.createElement('div')
 		splash.id = 'splash'
 		container.appendChild(splash)
 
@@ -42,32 +42,61 @@ class Splash extends events.EventEmitter{
 		titleContainer.appendChild(subTitle)
 		subTitle.textContent = 'Trade melodies with a neural network.'
 
-		const loader = new Loader(titleContainer)
+		this._clicked = false
+		const loader = this._loader = new Loader(titleContainer)
 		loader.on('click', () => {
 			splash.classList.add('disappear')
+			this._clicked = true
 			this.emit('click')
 		})
+
+		const magenta = document.createElement('div')
+		magenta.id = 'magentaLink'
+		titleContainer.appendChild(magenta)
+		magenta.innerHTML = 'Built using <a href="https://github.com/tensorflow/magenta" target="_blank">Magenta</a>'
+
+		const badges = document.createElement('div')
+		badges.id = 'badges'
+		splash.appendChild(badges)
 
 		const aiExperiments = document.createElement('a')
 		aiExperiments.id = 'aiExperiments'
 		aiExperiments.href = 'https://aiexperiments.withgoogle.com'
 		aiExperiments.target = '_blank'
-		splash.appendChild(aiExperiments)
+		aiExperiments.classList.add('badge')
+		badges.appendChild(aiExperiments)
 
 		// break
 		const badgeBreak = document.createElement('div')
 		badgeBreak.id = 'badgeBreak'
-		splash.appendChild(badgeBreak)		
+		badges.appendChild(badgeBreak)		
 
 		const googleFriends = document.createElement('a')
 		googleFriends.id = 'googleFriends'
-		splash.appendChild(googleFriends)
+		googleFriends.classList.add('badge')
+		badges.appendChild(googleFriends)
 
 		const privacyAndTerms = document.createElement('div')
 		privacyAndTerms.id = 'privacyAndTerms'
 		privacyAndTerms.innerHTML = '<a target="_blank" href="https://www.google.com/intl/en/policies/privacy/">Privacy</a><span>&</span><a target="_blank" href="https://www.google.com/intl/en/policies/terms/">Terms</a>'
 		splash.appendChild(privacyAndTerms)
 
+	}
+
+	get loaded(){
+		return this._loader.loaded
+	}
+
+	isOpen(){
+		return !this._clicked
+	}
+
+	show(){
+		this._splash.classList.remove('disappear')
+	}
+
+	hide(){
+		this._splash.classList.add('disappear')
 	}
 }
 

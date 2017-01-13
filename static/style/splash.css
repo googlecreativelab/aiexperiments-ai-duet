@@ -1,6 +1,6 @@
 @import 'common.scss';
 
-$topMargin: 50px;
+$topMargin: 40px;
 
 #splash {
 	position: absolute;
@@ -9,7 +9,7 @@ $topMargin: 50px;
 	top: 0px;
 	left: 0px;
 	z-index: 100;
-	font-family: 'Quicksand', sans-serif;
+	font-family: $font-family;
 	font-weight: bold;
 	color: white;
 	transition: opacity 0.2s;
@@ -52,6 +52,30 @@ $topMargin: 50px;
 			margin-right: auto;
 			text-align: center;
 			font-weight: normal;
+		}
+
+		#magentaLink {
+			margin-top: $topMargin * 0.8;
+			letter-spacing: 0.8px;
+			line-height: 30px;
+			font-size: 20px;
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			font-weight: normal;
+			color: #aaa;
+			font-size: 14px;
+
+			a {
+				color: $orange;
+				text-decoration: underline;
+				cursor: pointer;
+				&:hover:active {
+					color: white;
+				}
+			}
+
 		}
 
 		$loaderWidth: 200px;
@@ -144,50 +168,78 @@ $topMargin: 50px;
 		margin-top: $topMargin;
 	}
 
-	$badgeWidth : 80px;
-	$badgeHeight: 50px;
+	$badgeWidth : 110px;
+	$badgeHeight: 60px;
 	$badgeMargin : 20px;
 	$badegOpacity: 0.7;
 
-	#aiExperiments, #googleFriends {
-		width: $badgeWidth;
-		height: $badgeHeight;
+	$smallScreen : 500px;
+	$smallBadgeWidth : 70px;
+	$smallBadgeHeight: 40px;
+
+	#badges {
+
 		position: absolute;
+		display: inline-block;
 		bottom: $badgeMargin;
-		opacity: $badegOpacity;
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-	}
-
-	#aiExperiments {
 		left: $badgeMargin;
-		background-image: url(../images/badgeAI_master.svg);
 
-		&:hover {
-			opacity: 1;
+		@media (max-width: $smallScreen) {
+			// bottom: $badgeMargin * 0.5;
+		}
 
-			&:active {
-				opacity: 0.3;
+		.badge {
+			display: inline-block;
+			position: relative;
+			margin-right: $badgeMargin;
+			width: $badgeWidth;
+			height: $badgeHeight;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			opacity: $badegOpacity;
+
+			@media (max-width: $smallScreen) {
+				width: $smallBadgeWidth;
+				height: $smallBadgeHeight;				
+			}
+		}
+
+		#aiExperiments {
+			background-image: url(../images/badgeAI_master.svg);
+			&:hover {
+				opacity: 1;
+				&:active {
+					opacity: 0.3;
+				}
+			}
+		}
+
+		#googleFriends {
+			cursor: initial;
+			background-image: url(../images/badgeFriends_master.svg);	
+		}
+
+		#badgeBreak{
+			display: inline-block;
+			position: relative;
+			margin-right: $badgeMargin;
+
+			$breakScale : 0.95;
+
+			$breakHeight: $badgeHeight * $breakScale;
+			height: $breakHeight;
+			background-color: white;
+			opacity: $badegOpacity / 2;
+			width: 1px;
+
+			@media (max-width: $smallScreen) {
+				$smallBreakHeight: $smallBadgeHeight * $breakScale;
+				height: $smallBreakHeight;
 			}
 		}
 	}
 
-	#googleFriends {
-		cursor: initial;
-		left: $badgeWidth + $badgeMargin * 3;
-		background-image: url(../images/badgeFriends_master.svg);	
-	}
 
-	#badgeBreak{
-		$breakHeight: $badgeHeight * 0.8;
-		height: $breakHeight;
-		left: $badgeWidth + $badgeMargin * 1.8;
-		background-color: white;
-		opacity: $badegOpacity / 2;
-		position: absolute;
-		width: 1px;
-		bottom: $badgeMargin + ($badgeHeight - $breakHeight) / 2;
-	}
 
 	#privacyAndTerms {
 		position: absolute;
@@ -199,7 +251,7 @@ $topMargin: 50px;
 		* {
 			height: 14px;
 			line-height: 14px;
-			font-size: 14px;
+			font-size: 10px;
 			color: white;
 			display: inline;
 			opacity: $badegOpacity;
