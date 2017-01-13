@@ -14,6 +14,7 @@ $blackKeyMargin : $borderWidth + 2px;
 	position: absolute;
 	width: calc(100% - 2 * #{$borderWidth});
 	user-select: none;
+	cursor: pointer;
 
 	.key {
 		position: absolute;
@@ -21,6 +22,7 @@ $blackKeyMargin : $borderWidth + 2px;
 		width: 10px;
 		left: 0px;
 		top: 0px;
+		user-select: none;
 
 		&.black {
 			z-index: 1;
