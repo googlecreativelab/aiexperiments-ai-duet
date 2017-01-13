@@ -52,7 +52,7 @@ body, #container{
 	transition: filter $transitionTime, opacity $transitionTime;
 
 	&.focus {
-		filter: blur(0px);
+		filter: none;
 		opacity: 1;
 	}
 }
