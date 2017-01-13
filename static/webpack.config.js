@@ -21,7 +21,7 @@ var PROD = process.argv.indexOf('-p') !== -1
 module.exports = {
 	'context': __dirname,
 	entry: {
-		'Main': 'app/Main',
+		'Main': 'src/FeatureTest',
 	},
 	output: {
 		filename: './build/[name].js',
@@ -30,7 +30,7 @@ module.exports = {
 	},
 	resolve: {
 		root: __dirname,
-		modulesDirectories : ['node_modules', 'app', 'third_party', 'node_modules/tone', 'style'],
+		modulesDirectories : ['node_modules', 'src', 'third_party', 'node_modules/tone', 'style'],
 	},
 	plugins: PROD ? [
 	    new webpack.optimize.UglifyJsPlugin({minimize: true})
@@ -39,7 +39,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js$/,
-				exclude: /(node_modules)/,
+				exclude: /(node_modules|Tone\.js)/,
 				loader: 'babel', // 'babel-loader' is also a valid name to reference
 				query: {
 					presets: ['es2015']
