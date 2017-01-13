@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-import {Midi} from 'MidiConvert/src/Midi'
 import Tone from 'Tone/core/Tone'
-import MidiConvert from 'MidiConvert/src/MidiConvert'
+import MidiConvert from 'midiconvert'
 import events from 'events'
-
-window.generator = 'pop'
 
 class AI extends events.EventEmitter{
 	constructor(){
@@ -33,22 +30,11 @@ class AI extends events.EventEmitter{
 
 		this._lastPhrase = -1
 
-		/*setInterval(() => {
-			//wait a max of 10 seconds before sending an event
-			if (Date.now() - this._phraseStart > 5000){
-				for (let note in this._heldNotes){
-					this._track.noteOff(note, Tone.now())
-					delete this._heldNotes[note]
-				}
-				this.send()
-			}
-		}, 200)*/
-
 		this._aiEndTime = 0
 	}
 
 	_newTrack(){
-		this._midi = new Midi()
+		this._midi = new MidiConvert.create()
 		this._track = this._midi.track()
 	}
 
@@ -66,40 +52,42 @@ class AI extends events.EventEmitter{
 			let additional = endTime
 			additional = Math.min(additional, 8)
 			additional = Math.max(additional, 1)
-			request.load(`/predict?duration=${endTime + additional}&generator=${generator}`, JSON.stringify(request.toArray()), 'POST').then((response) => {
+			request.load(`/predict?duration=${endTime + additional}`, JSON.stringify(request.toArray()), 'POST').then((response) => {
 				response.slice(endTime / 2).tracks[1].notes.forEach((note) => {
-					const now = Tone.now()
+					const now = Tone.now() + 0.05
 					if (note.noteOn + now > this._aiEndTime){
 						this._aiEndTime = note.noteOn + now
 						this.emit('keyDown', note.midi, note.noteOn + now)
 						note.duration = note.duration * 0.9
+						note.duration = Math.min(note.duration, 4)
 						this.emit('keyUp', note.midi, note.noteOff + now)
 					}
 				})
 			})
 			this._lastPhrase = -1
+			this.emit('sent')
 		}
 	}
 
-	keyDown(note){
+	keyDown(note, time=Tone.now()){
 		if (this._track.length === 0 && this._lastPhrase === -1){
 			this._lastPhrase = Date.now()
 		}
-		this._track.noteOn(note, Tone.now())
+		this._track.noteOn(note, time)
 		clearTimeout(this._sendTimeout)
 		this._heldNotes[note] = true
 	}
 
-	keyUp(note){
-		this._track.noteOff(note, Tone.now())
+	keyUp(note, time=Tone.now()){
+		this._track.noteOff(note, time)
 		delete this._heldNotes[note]
 		// send something if there are no events for a moment
 		if (Object.keys(this._heldNotes).length === 0){
-			if (this._lastPhrase !== -1 && Date.now() - this._lastPhrase > 5000){
-				//do it immediately
+			if (this._lastPhrase !== -1 && Date.now() - this._lastPhrase > 3000){
+				//just send it
 				this.send()
 			} else {
-				this._sendTimeout = setTimeout(this.send.bind(this), 600)
+				this._sendTimeout = setTimeout(this.send.bind(this), 600 + (time - Tone.now()) * 1000)
 			}
 		}
 	}

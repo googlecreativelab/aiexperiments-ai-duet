@@ -44,7 +44,11 @@ export default class Loader extends EventEmitter{
 
 		StartAudioContext(Tone.context, loader)
 
+		this.loaded = false
+
 		Buffer.on('load', () => {
+
+			this.loaded = true
 
 			fillText.innerHTML = '<div id="piano"></div> <div id="play">PLAY</div>'
 			loader.classList.add('clickable')
