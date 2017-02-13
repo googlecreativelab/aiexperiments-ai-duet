@@ -29,7 +29,7 @@ import time
 import tempfile
 import pretty_midi
 
-BUNDLE_NAME = 'basic_rnn'
+BUNDLE_NAME = 'attention_rnn'
 
 config = magenta.models.melody_rnn.melody_rnn_model.default_configs[BUNDLE_NAME]
 bundle_file = magenta.music.read_bundle_file(os.path.abspath(BUNDLE_NAME+'.mag'))
