@@ -23,7 +23,15 @@ import {Sampler} from 'sound/Sampler'
 class Sound {
 	constructor(){
 
-		this._range = [24, 108]
+		// make the samples loaded based on the screen size
+		if (screen.availWidth < 750 && screen.availHeight < 750){
+			this._range = [48, 72]
+		} else if (screen.availWidth < 1000 && screen.availHeight < 1000){
+			this._range = [48, 84]
+		} else {
+			this._range = [24, 108]			
+		}
+
 
 		this._piano = new Sampler('audio/Salamander/', this._range)
 
@@ -36,7 +44,6 @@ class Sound {
 	}
 
 	keyDown(note, time=Tone.now(), ai=false){
-
 		if (note >= this._range[0] && note <= this._range[1]){
 			this._piano.keyDown(note, time)
 			if (ai){
