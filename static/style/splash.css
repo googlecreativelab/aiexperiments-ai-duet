@@ -1,6 +1,6 @@
 @import 'common.scss';
 
-$topMargin: 40px;
+$topMargin: 35px;
 
 #splash {
 	position: absolute;
@@ -37,45 +37,49 @@ $topMargin: 40px;
 
 		#title {
 			line-height: 60px;
-			font-size: 65px;
+			font-size: 55px;
 			letter-spacing: 1px;
-			font-weight: normal;
+			font-weight: 300;
 		}
 
-		#subTitle {
+		#subTitle, #howItWorks {
 			margin-top: $topMargin;
 			letter-spacing: 0.8px;
 			line-height: 30px;
-			font-size: 20px;
-			width: 80%;
-			margin-left: auto;
-			margin-right: auto;
-			text-align: center;
-			font-weight: normal;
-		}
-
-		#magentaLink {
-			margin-top: $topMargin * 0.8;
-			letter-spacing: 0.8px;
-			line-height: 30px;
-			font-size: 20px;
+			font-size: 15px;
 			width: 100%;
 			margin-left: auto;
 			margin-right: auto;
 			text-align: center;
-			font-weight: normal;
-			color: #aaa;
-			font-size: 14px;
+			font-weight: 300;
+		}
 
-			a {
-				color: $orange;
-				text-decoration: underline;
-				cursor: pointer;
-				&:hover:active {
-					color: white;
-				}
+		#howItWorks {
+			$size : 20px;
+			$margin: 30px;
+
+			color: $orange;
+			width: auto;
+			display: inline-block;
+			margin-left: $margin;
+
+			&:before {
+				position: absolute;
+				width: $size;
+				height: $size;
+				margin-left: -$margin;
+				margin-top: $size / 4;
+				content : '';
+				background-image: url(../images/yellow_play_triangle.svg);
 			}
 
+			cursor: pointer;
+
+			transition: transform 0.1s;
+
+			&:hover {
+				transform: scale(1.1);
+			}
 		}
 
 		$loaderWidth: 200px;
@@ -173,9 +177,10 @@ $topMargin: 40px;
 	$badgeMargin : 20px;
 	$badegOpacity: 0.7;
 
-	$smallScreen : 500px;
-	$smallBadgeWidth : 70px;
+	$smallScreen : 520px;
+	$smallBadgeWidth : 90px;
 	$smallBadgeHeight: 40px;
+	$smallBadgeMargin: 8px;
 
 	#badges {
 
@@ -186,6 +191,14 @@ $topMargin: 40px;
 
 		@media (max-width: $smallScreen) {
 			// bottom: $badgeMargin * 0.5;
+			bottom: 40px;
+			$badgesWidth : $smallBadgeWidth * 3 + $smallBadgeMargin * 3 + 2px;
+			width: $badgesWidth;
+			left: 50%;
+			margin-left: -$badgesWidth/2;
+			// left: $smallBadgeMargin * 2;			
+			// left: 50%;
+			// transform: translate(-50%, 0);
 		}
 
 		.badge {
@@ -197,10 +210,14 @@ $topMargin: 40px;
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
 			opacity: $badegOpacity;
+			overflow: hidden;
 
 			@media (max-width: $smallScreen) {
 				width: $smallBadgeWidth;
-				height: $smallBadgeHeight;				
+				height: $smallBadgeHeight;	
+				font-size: 10px!important;
+				margin-right: $smallBadgeMargin;
+				opacity: 1;
 			}
 		}
 
@@ -217,9 +234,71 @@ $topMargin: 40px;
 		#googleFriends {
 			cursor: initial;
 			background-image: url(../images/badgeFriends_master.svg);	
+			margin-right: 0px;
 		}
 
-		#badgeBreak{
+
+		#magentaLink {
+			font-weight: bold;
+			font-size: 10px;
+			margin-left: 0px;
+		    margin-right: 0px;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			@media (max-width: $smallScreen) {
+				font-size: 8px;
+			}
+
+
+			div {
+				display: inline-block;
+				position: relative;
+			}
+
+			$imgSize : $badgeHeight;
+			$smallImg : $smallBadgeHeight;
+			#img {
+				background-image: url(../images/magenta_bw_logo.png);
+				background-size: 90% 90%;
+				background-position: left center;
+				background-repeat: no-repeat;
+				width: $imgSize;
+				height: $imgSize;
+				float: left;
+
+				@media (max-width: $smallScreen) {
+					width: $smallImg;
+					height: $smallImg;
+				}
+			}
+
+			#text {
+				margin-top: 15px;
+				float: right;
+				height: 100%;
+				width: $badgeWidth - $imgSize;
+
+				@media (max-width: $smallScreen) {
+					margin-top: 7px;
+					width: $smallBadgeWidth - $smallImg;
+				}
+
+				a {
+					color: $orange;
+					text-decoration: underline;
+					cursor: pointer;
+					&:hover:active {
+						color: white;
+					}
+				}
+			}
+
+		}
+
+		.badgeBreak{
 			display: inline-block;
 			position: relative;
 			margin-right: $badgeMargin;
@@ -235,6 +314,7 @@ $topMargin: 40px;
 			@media (max-width: $smallScreen) {
 				$smallBreakHeight: $smallBadgeHeight * $breakScale;
 				height: $smallBreakHeight;
+				margin-right: $smallBadgeMargin;
 			}
 		}
 	}
@@ -247,6 +327,17 @@ $topMargin: 40px;
 		right: $badgeMargin;
 		width: auto;
 		font-weight: normal;
+
+		@media (max-width: $smallScreen) {
+			bottom: $smallBadgeMargin;
+			left: 50%;
+			right: initial;
+			transform: translate(-50%, 0);
+
+			* {
+				font-size: 8px!important;
+			}
+		}
 
 		* {
 			height: 14px;

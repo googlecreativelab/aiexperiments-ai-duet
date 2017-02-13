@@ -56,7 +56,7 @@ export class About extends events.EventEmitter{
 		const title = document.createElement('div')
 		title.id = 'title'
 		title.textContent = 'A.I. Duet'
-		content.appendChild(title)
+		// content.appendChild(title)
 
 		const video = document.createElement('div')
 		video.id = 'video'
@@ -93,7 +93,7 @@ export class About extends events.EventEmitter{
 
 		this._container.classList.remove('visible')
 
-		if (this._ytplayer){
+		if (this._ytplayer && this._ytplayer.stopVideo){
 			this._ytplayer.stopVideo()
 		}
 		this.emit('close')
@@ -101,7 +101,7 @@ export class About extends events.EventEmitter{
 			ga('send', 'event', 'AI-Duet', 'Click', 'About - Close')
 		}
 	}
-	open(){
+	open(play=false){
 		this._toggleButton.classList.add('close')
 		this._toggleButton.classList.remove('open')
 
@@ -111,8 +111,23 @@ export class About extends events.EventEmitter{
 		if (window.ga){
 			ga('send', 'event', 'AI-Duet', 'Click', 'About - Open')
 		}
+		if (play){
+			this._playVideo()
+		}
+	}
+	// waits until the player is ready to play the video, 
+	// otherwise goes back into waiting loop
+	_playVideo(retries=0){
+		if (this._ytplayer && this._ytplayer.playVideo){
+			this._ytplayer.playVideo()
+		} else if (retries < 10 && this.isOpen()){
+			setTimeout(() => this._playVideo(retries+1), 200);
+		}	
 	}
 	isOpen(){
 		return this._container.classList.contains('visible')
+	}
+	showButton(){
+		this._toggleButton.classList.add('show')
 	}
 }

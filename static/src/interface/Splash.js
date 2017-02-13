@@ -40,7 +40,7 @@ class Splash extends events.EventEmitter{
 		const subTitle = document.createElement('div')
 		subTitle.id = 'subTitle'
 		titleContainer.appendChild(subTitle)
-		subTitle.textContent = 'Trade melodies with a neural network.'
+		subTitle.textContent = 'A piano that responds to you.'
 
 		this._clicked = false
 		const loader = this._loader = new Loader(titleContainer)
@@ -50,10 +50,13 @@ class Splash extends events.EventEmitter{
 			this.emit('click')
 		})
 
-		const magenta = document.createElement('div')
-		magenta.id = 'magentaLink'
-		titleContainer.appendChild(magenta)
-		magenta.innerHTML = 'Built using <a href="https://github.com/tensorflow/magenta" target="_blank">Magenta</a>'
+		const howItWorks = document.createElement('div')
+		howItWorks.id = 'howItWorks'
+		titleContainer.appendChild(howItWorks)
+		howItWorks.textContent = 'How it works'
+		howItWorks.addEventListener('click', () => {
+			this.emit('about')
+		})
 
 		const badges = document.createElement('div')
 		badges.id = 'badges'
@@ -67,14 +70,26 @@ class Splash extends events.EventEmitter{
 		badges.appendChild(aiExperiments)
 
 		// break
-		const badgeBreak = document.createElement('div')
-		badgeBreak.id = 'badgeBreak'
-		badges.appendChild(badgeBreak)		
+		const break0 = document.createElement('div')
+		break0.classList.add('badgeBreak')
+		badges.appendChild(break0)
 
 		const googleFriends = document.createElement('a')
 		googleFriends.id = 'googleFriends'
 		googleFriends.classList.add('badge')
 		badges.appendChild(googleFriends)
+
+		//break two
+		const break1 = document.createElement('div')
+		break1.classList.add('badgeBreak')
+		badges.appendChild(break1)
+
+		const magenta = document.createElement('div')
+		magenta.id = 'magentaLink'
+		magenta.classList.add('badge')
+		const imgHtml = '<div id="img"></div>'
+		magenta.innerHTML = imgHtml + '<div id="text">Built using <a href="https://magenta.tensorflow.org/" target="_blank">Magenta</a></div>'
+		badges.appendChild(magenta)
 
 		const privacyAndTerms = document.createElement('div')
 		privacyAndTerms.id = 'privacyAndTerms'
