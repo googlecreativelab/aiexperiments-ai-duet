@@ -30,6 +30,10 @@ const splash = new Splash(document.body)
 splash.on('click', () => {
 	keyboard.activate()
 	tutorial.start()
+	about.showButton()
+})
+splash.on('about', () => {
+	about.open(true)
 })
 about.on('close', () => {
 	if (!splash.loaded || splash.isOpen()){
