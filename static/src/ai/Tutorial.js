@@ -88,7 +88,7 @@ export class Tutorial extends events.EventEmitter{
 			this._sendUserMelody()
 			return this._promiseTimeout(500)
 		}).then(() => {
-			this._addText('A neural network will respond to what you play', 'ai', 5000)
+			this._addText('the computer will respond to what you play', 'ai', 5000)
 		})
 	}
 	_promiseTimeout(time){
