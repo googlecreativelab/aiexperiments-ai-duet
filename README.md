@@ -12,7 +12,7 @@ This is not an official Google product.
 
 ## CREDITS
 
-Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta and Creative Lab teams at Google. It uses [Tone.js](https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://github.com/tensorflow/magenta) project. Check out more at [A.I. Experiments](https://aiexperiments.withgoogle.com).
+Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta and Creative Lab teams at Google. It uses [TensorFlow](https://tensorflow.org), [Tone.js](https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://magenta.tensorflow.org/) project. Check out more at [A.I. Experiments](https://aiexperiments.withgoogle.com).
 
 ## OVERVIEW
 
@@ -60,7 +60,7 @@ You can now play with A.I. Duet at [localhost:8080](http://localhost:8080).
 
 ## MIDI SUPPORT
 
-The A.I. Duet supports MIDI keyboard input using [Web Midi API](https://webaudio.github.io/web-midi-api/) and the [WebMIDI](https://github.com/cotejp/webmidi) library. Make sure you refresh the page after plugging in a keyboard to make sure it connects correctly. 
+The A.I. Duet supports MIDI keyboard input using [Web Midi API](https://webaudio.github.io/web-midi-api/) and the [WebMIDI](https://github.com/cotejp/webmidi) library. 
 
 ## PIANO KEYBOARD
 
