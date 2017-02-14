@@ -84,11 +84,13 @@ class Splash extends events.EventEmitter{
 		break1.classList.add('badgeBreak')
 		badges.appendChild(break1)
 
-		const magenta = document.createElement('div')
+		const magenta = document.createElement('a')
+		magenta.href = 'https://magenta.tensorflow.org/'
+		magenta.target = '_blank'
 		magenta.id = 'magentaLink'
 		magenta.classList.add('badge')
 		const imgHtml = '<div id="img"></div>'
-		magenta.innerHTML = imgHtml + '<div id="text">Built using <a href="https://magenta.tensorflow.org/" target="_blank">Magenta</a></div>'
+		magenta.innerHTML = imgHtml + '<div id="text">Built using <span>Magenta</span></div>'
 		badges.appendChild(magenta)
 
 		const privacyAndTerms = document.createElement('div')
