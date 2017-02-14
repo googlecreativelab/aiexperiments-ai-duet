@@ -18,14 +18,17 @@ import 'style/about.css'
 import YouTubeIframeLoader from 'youtube-iframe'
 import events from 'events'
 
-const magentaLink = 'https://github.com/tensorflow/magenta'
-const sourceCode = 'https://github.com/googlecreativelab/aiexperiments-ai-duet'
+const magentaLink = 'https://magenta.tensorflow.org/'
+const tfLink = 'https://www.tensorflow.org/'
 const toneLink = 'https://github.com/Tonejs/Tone.js'
+const sourceCode = 'https://github.com/googlecreativelab/aiexperiments-ai-duet'
 
 const blurbCopy = `Built by Yotam Mann with friends on the Magenta and Creative Lab teams at Google. 
-					It uses <a target='_blank' href='${toneLink}'>Tone.js</a> and tools 
+					It uses <a target='_blank' href='${tfLink}'>TensorFlow</a>,
+					<a target='_blank' href='${toneLink}'>Tone.js</a> and tools 
 					from the <a target='_blank' href='${magentaLink}'>Magenta project</a>. 
-					The open-source code is <a target='_blank' href='${sourceCode}'>available here</a>.`
+					The open-source code is <a target='_blank' href='${sourceCode}'>available here</a>.
+					Click the keyboard, use your computer keys, or even plug in a MIDI keyboard.`
 
 export class About extends events.EventEmitter{
 	constructor(container){

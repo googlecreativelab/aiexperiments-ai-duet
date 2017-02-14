@@ -172,12 +172,12 @@ $topMargin: 35px;
 		margin-top: $topMargin;
 	}
 
-	$badgeWidth : 110px;
+	$badgeWidth : 120px;
 	$badgeHeight: 60px;
 	$badgeMargin : 20px;
 	$badegOpacity: 0.7;
 
-	$smallScreen : 520px;
+	$smallScreen : 575px;
 	$smallBadgeWidth : 90px;
 	$smallBadgeHeight: 40px;
 	$smallBadgeMargin: 8px;
@@ -240,16 +240,17 @@ $topMargin: 35px;
 
 		#magentaLink {
 			font-weight: bold;
-			font-size: 10px;
+			font-size: 12px;
 			margin-left: 0px;
 		    margin-right: 0px;
+		    color: white;
 
 			&:hover {
 				opacity: 1;
 			}
 
 			@media (max-width: $smallScreen) {
-				font-size: 8px;
+				font-size: 7px;
 			}
 
 
@@ -276,7 +277,7 @@ $topMargin: 35px;
 			}
 
 			#text {
-				margin-top: 15px;
+				margin-top: 14px;
 				float: right;
 				height: 100%;
 				width: $badgeWidth - $imgSize;
@@ -286,7 +287,7 @@ $topMargin: 35px;
 					width: $smallBadgeWidth - $smallImg;
 				}
 
-				a {
+				span {
 					color: $orange;
 					text-decoration: underline;
 					cursor: pointer;
