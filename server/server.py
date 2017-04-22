@@ -14,7 +14,7 @@
 # limitations under the License.
 # 
 
-from predict import generate_midi
+from predict import generate_midi, predictmood
 import os
 from flask import send_file, request
 import pretty_midi
@@ -35,11 +35,19 @@ def predict():
     now = time.time()
     values = json.loads(request.data)
     midi_data = pretty_midi.PrettyMIDI(StringIO(''.join(chr(v) for v in values)))
+    print values
     duration = float(request.args.get('duration'))
     ret_midi = generate_midi(midi_data, duration)
     return send_file(ret_midi, attachment_filename='return.mid', 
         mimetype='audio/midi', as_attachment=True)
 
+@app.route('/getmood', methods=['POST'])
+def getmood():
+    values = json.loads(request.data)
+    midi_data = pretty_midi.PrettyMIDI(StringIO(''.join(chr(v) for v in values)))
+    ret_file = predictmood(midi_data)
+    print ret_file
+    return send_file(ret_file, attachment_filename='return.json', as_attachment=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
