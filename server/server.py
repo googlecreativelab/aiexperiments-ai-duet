@@ -14,7 +14,7 @@
 # limitations under the License.
 # 
 
-from predict import generate_midi, predictmood
+from predict import generate_midi
 import os
 from flask import send_file, request
 import pretty_midi
@@ -25,29 +25,55 @@ else:
     from io import StringIO
 import time
 import json
+import mido
+import tempfile
+from usingMusicNN import predictmood
+import numpy as np
 
 from flask import Flask
 app = Flask(__name__, static_url_path='', static_folder=os.path.abspath('../static'))
 
+HappyNote = 0
+SadNote = 1
+
+def HappyTrack():
+    track = mido.MidiTrack()
+    track.append(mido.Message('note_on', note=HappyNote, velocity=3, time=6))
+    return track
+
+def SadTrack():
+    track = mido.MidiTrack()
+    track.append(mido.Message('note_on', note=SadNote, velocity=3, time=6))
+    return track
 
 @app.route('/predict', methods=['POST'])
 def predict():
     now = time.time()
     values = json.loads(request.data)
     midi_data = pretty_midi.PrettyMIDI(StringIO(''.join(chr(v) for v in values)))
-    print values
     duration = float(request.args.get('duration'))
     ret_midi = generate_midi(midi_data, duration)
-    return send_file(ret_midi, attachment_filename='return.mid', 
-        mimetype='audio/midi', as_attachment=True)
 
-@app.route('/getmood', methods=['POST'])
-def getmood():
-    values = json.loads(request.data)
-    midi_data = pretty_midi.PrettyMIDI(StringIO(''.join(chr(v) for v in values)))
-    ret_file = predictmood(midi_data)
-    print ret_file
-    return send_file(ret_file, attachment_filename='return.json', as_attachment=True)
+    # Store the received midi file in a temporary file to be able to use it with mido
+    mfile = tempfile.NamedTemporaryFile()
+    midi_data.write(mfile)
+    mfile.seek(0)
+
+    midofile = mido.MidiFile(mfile.name)
+
+    mood = predictmood(midofile)
+    print mood
+    
+    # Add a new track with the first note indicating the mood
+    midi_to_mod = mido.MidiFile(ret_midi.name)
+    midi_to_mod.tracks.append(HappyTrack() if mood == 'happy' else SadTrack())
+
+    ret_file = tempfile.NamedTemporaryFile()
+    midi_to_mod.save(ret_file.name)
+    ret_file.seek(0)
+
+    return send_file(ret_file, attachment_filename='return.mid', 
+        mimetype='audio/midi', as_attachment=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
