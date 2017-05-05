@@ -68,16 +68,9 @@ def generate_midi(midi_data, total_seconds=10):
 
     # generate the output sequence
     generated_sequence = generator.generate(primer_sequence, generator_options)
-
+    
     output = tempfile.NamedTemporaryFile()
     magenta.music.midi_io.sequence_proto_to_midi_file(generated_sequence, output.name)
     output.seek(0)
     return output
-
-
-def predictmood(midi_data):
-    '''
-    Attempt to predict the mood of the music in the midi file
-    '''
-
-    return predictmood(midi_data)
+    
