@@ -1,14 +1,13 @@
 '''
-    Thomas Matlak Avi Vajpeyi, Avery Rapson
-    CS 310 Final Project
-    
-    Loads the NN saved in the dir 'savedFile'. The function predictmood(input_midi_file)
-    takes a midi files in MIDO format and returns if it is happy or sad
-    
-    Usage:
-    python usingMusicNN.py
-'''
+Thomas Matlak Avi Vajpeyi, Avery Rapson
+CS 310 Final Project
 
+Loads the NN saved in the dir 'savedFile'. The function predictmood(input_midi_file)
+takes a midi files in MIDO format and returns if it is happy or sad
+
+Usage:
+python usingMusicNN.py
+'''
 
 import tensorflow as tf
 import json
@@ -17,21 +16,26 @@ import numpy as np
 import tempfile
 
 
-midiFile =  "testMidi.mid"
-saveFile = "savedModels/musicModel"
+midiFile =  "01.mid"
+saveFile = "savedModels/musicModelpy27"
+
 
 pianoSize = 128
 
+print("Bad ass Neural Net being loaded...")
 
-n_nodes_hl1 = 1500
-n_nodes_hl2 = 1500
-n_nodes_hl3 = 1500
 
-n_classes = 2
 hm_data = 2000000
 
-batch_size = 32
-hm_epochs = 10
+
+n_nodes_hl1 = 1000
+n_nodes_hl2 = 1000
+n_nodes_hl3 = 1000
+
+n_classes = 2
+batch_size = 10
+hm_epochs = 9
+
 
 x = tf.placeholder('float')
 y = tf.placeholder('float')
@@ -78,17 +82,16 @@ def neural_network_model(data):
 
 #
 def predictmood(input_midi_file):
-    output = tempfile.NamedTemporaryFile()
     prediction = neural_network_model(x)
     # with open('musicModel.pickle','rb') as f:
     #     lexicon = pickle.load(f)
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        saver = tf.train.import_meta_graph('savedModels/musicModel.meta')
-        saver.restore(sess, 'savedModels/musicModel')
+        saver = tf.train.import_meta_graph(saveFile+'.meta')
+        saver.restore(sess, saveFile)
         #### CONVERT THE MIDI TO NOTES AND FEATURES (without [0,1])
         #### need it in the [0 112 1 1 0 0 0 ....] format
-        mid = MidiFile(input_midi_file)
+        mid = input_midi_file
         notes = []
         time = float(0)
         prev = float(0)
@@ -117,9 +120,9 @@ def predictmood(input_midi_file):
         # neg: [0,1] , argmax: 1
         result = (sess.run(tf.argmax(prediction.eval(feed_dict={x:[noteCount]}),1)))
         if result[0] == 0:
-            output.write("Happy")
+            return ("Sad")
         elif result[0] == 1:
-            output.write("Sad")
+            return ("Happy")
         # with open('mood.txt', 'w') as outfile:
         #     mood_dict = dict()
         #     if result[0] == 0:
@@ -127,6 +130,5 @@ def predictmood(input_midi_file):
         #     elif result[0] == 1:
         #         mood_dict = {'Mood': "Sad"}
         #     json.dump(mood_dict, outfile)
-    output.seek(0) #resets the pointer to the data of the file to the start
-    return output
-
+#    output.seek(0) #resets the pointer to the data of the file to the start
+#    return output
