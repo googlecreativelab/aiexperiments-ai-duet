@@ -5,7 +5,11 @@
   "main": "build/Main.js",
   "repository": {
     "type": "git",
-    "url": "https://creativelab-internal.googlesource.com/cl-mlx-piano/"
+    "url": "https://github.com/googlecreativelab/aiexperiments-ai-duet/"
+  },
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack -w"
   },
   "dependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -21,14 +25,14 @@
     "file-loader": "^0.9.0",
     "jsmidgen": "^0.1.5",
     "midi-file-parser": "^1.0.0",
-    "midiconvert": "^0.4.1",
+    "midiconvert": "0.4.1",
     "node-sass": "^3.4.2",
     "pepjs": "^0.4.2",
     "sass-loader": "^3.2.0",
     "startaudiocontext": "^1.2.0",
     "style-loader": "^0.13.1",
-    "three": "^0.83.0",
-    "tone": "^0.9.0",
+    "three": "0.83.0",
+    "tone": "0.9.0",
     "url-loader": "^0.5.7",
     "webmidi": "^2.0.0-beta.1",
     "webpack": "^1.12.14",
