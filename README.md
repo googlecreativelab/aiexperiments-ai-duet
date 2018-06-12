@@ -20,7 +20,7 @@ A.I. Duet is composed of two parts, the front-end which is in the `static` folde
 
 ## INSTALLATION
 
-A.I. Duet only works with [Python 2.7](https://www.python.org/download/releases/2.7/). There are two basic ways of installing A.I. Duet: with Docker or without Docker.
+A.I. Duet only works with [Python 2.7](https://www.python.org/download/releases/2.7/) and it was tested with Node v6. There are two basic ways of installing A.I. Duet: with Docker or without Docker.
 
 If you already have a Python environment setup, install all of the server dependencies and start the server by typing the following in the terminal:
 
@@ -37,12 +37,12 @@ If it _did_ install tensorflow and magenta successfully, you can run the server 
 python server.py
 ```
 
-Then to build and install the front-end Javascript code, first make sure you have [Node.js](https://nodejs.org) 6 or above and [webpack](https://webpack.github.io/) installed. And then install of the dependencies of the project and build the code by typing the following in the terminal: 
+Then to build and install the front-end Javascript code, first make sure you have [Node.js](https://nodejs.org) 6 installed. And then install of the dependencies of the project and build the code by typing the following in the terminal: 
 
 ```bash
 cd static
 npm install
-webpack -p
+npm run build
 ```
 
 You can now play with A.I. Duet at [localhost:8080](http://localhost:8080).
