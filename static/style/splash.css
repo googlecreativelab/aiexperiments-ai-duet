@@ -53,6 +53,17 @@ $topMargin: 35px;
 			text-align: center;
 			font-weight: 300;
 		}
+		#germanSubTitle {
+			margin-top: 0px;
+			letter-spacing: 0.8px;
+			line-height: 30px;
+			font-size: 15px;
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			font-weight: 300;
+		}
 
 		#howItWorks {
 			$size : 20px;
@@ -62,28 +73,26 @@ $topMargin: 35px;
 			width: auto;
 			display: inline-block;
 			margin-left: $margin;
-
-			&:before {
-				position: absolute;
-				width: $size;
-				height: $size;
-				margin-left: -$margin;
-				margin-top: $size / 4;
-				content : '';
-				background-image: url(../images/yellow_play_triangle.svg);
-			}
-
-			cursor: pointer;
-
-			transition: transform 0.1s;
-
-			&:hover {
-				transform: scale(1.1);
-			}
 		}
 
-		$loaderWidth: 200px;
-		$loaderHeight: 60px;
+		#germanHowItWorks {
+			$size : 20px;
+			$margin: 0px;
+
+			color: $orange;
+			width: auto;
+			display: inline-block;
+			margin-left: $margin;
+			letter-spacing: 0.8px;
+			line-height: 30px;
+			font-size: 15px;
+			margin-right: auto;
+			text-align: cenasdter;
+			font-weight: 300;
+		}
+
+		$loaderWidth: 500px;
+		$loaderHeight: 120px;
 
 		#loader {
 			position: relative;
@@ -96,25 +105,6 @@ $topMargin: 35px;
 			margin-right: auto;
 			text-transform: uppercase;
 
-			&.clickable {
-				cursor: pointer;
-
-				transition: transform 0.1s;
-
-				&:hover {
-					transform: scale(1.1);
-				}
-
-				#fillText:active {
-					color: black!important;
-					background-color: $orange;
-
-					#piano {
-						filter: brightness(0);
-					}
-				}
-			}
-
 			#loaderText {
 				position: absolute;
 				width: 100%;
@@ -126,7 +116,7 @@ $topMargin: 35px;
 			#fill {
 				position: absolute;
 				height: 100%;
-				width: 0%;
+				width: 100%;
 				overflow: hidden;
 				background-color: black;
 
@@ -135,7 +125,7 @@ $topMargin: 35px;
 					width: $loaderWidth;
 					height: 100%;
 					color: $orange;
-
+					line-height: 88px;
 					$imgWidth: 40px;
 					$margin : 52px;
 
@@ -145,9 +135,18 @@ $topMargin: 35px;
 					}
 
 					#play {
+						margin-left: 150px;
 						right: $margin;
+						position: relative;
+						/*display: inline-block;*/
 					}
-
+					#germanPlay {
+						margin-left: 120px;
+						right: $margin;
+						position: absolute;
+						padding-top: 30px;
+						/*display: inline-block;*/
+					}
 					#piano {
 						left: $margin;
 						width: $imgWidth;

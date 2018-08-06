@@ -22,9 +22,9 @@ import {Splash} from 'interface/Splash'
 import {About} from 'interface/About'
 import {Tutorial} from 'ai/Tutorial'
 import 'babel-polyfill'
+import IdleTimeout from 'idle-timeout'
 
-/////////////// SPLASH ///////////////////	
-
+/////////////// SPLASH ///////////////////
 const about = new About(document.body)
 const splash = new Splash(document.body)
 splash.on('click', () => {
@@ -39,6 +39,7 @@ about.on('close', () => {
 	if (!splash.loaded || splash.isOpen()){
 		splash.show()
 	} else {
+
 		keyboard.activate()
 	}
 })
@@ -49,6 +50,19 @@ about.on('open', () => {
 	}
 })
 
+//////////////// IDLE TIMER ///////////////
+const idleTimeout = new IdleTimeout(
+	() => {
+		keyboard.deactivate();
+		splash.show();
+		keyboard._active = true;
+	  },
+	  {
+		element: document,
+		timeout: 60000,
+		loop: false
+	  }
+	);
 
 /////////////// PIANO ///////////////////
 
@@ -63,6 +77,7 @@ const sound = new Sound()
 sound.load()
 
 keyboard.on('keyDown', (note) => {
+	idleTimeout.reset()
 	sound.keyDown(note)
 	ai.keyDown(note)
 	glow.user()

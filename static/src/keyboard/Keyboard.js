@@ -28,7 +28,7 @@ class Keyboard extends events.EventEmitter{
 
 		this._container = container
 
-		this._active = false
+		this._active = true;
 
 		/**
 		 * The audio key keyboard
@@ -76,9 +76,12 @@ class Keyboard extends events.EventEmitter{
 		//the midi input
 		this._midi = new Midi()
 		this._midi.on('keyDown', (note) => {
-			this.keyDown(note)
-			this._emitKeyDown(note)
-		})
+			const splash = document.getElementById("splash");
+			splash.classList.add('disappear');
+			container.classList.add('focus');
+			this.keyDown(note);
+			this._emitKeyDown(note);
+		});
 		this._midi.on('keyUp', (note) => {
 			this.keyUp(note)
 			this._emitKeyUp(note)
