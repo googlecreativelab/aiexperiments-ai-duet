@@ -48,7 +48,8 @@ export default class Loader extends EventEmitter{
 
 		Buffer.on('load', () => {
 			this.loaded = true
-			fillText.innerHTML = '<div id="piano"></div> <div id="play">Press any key to play</div></br><div id="germanPlay"> Drücken Sie eine beliebige Taste, um zu spielen.</div>'
+			loader.classList.add("loaded")
+			fillText.innerHTML = '<div id="piano">'
 		})
 
 		Buffer.on('progress', (prog) => {
