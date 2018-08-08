@@ -76,9 +76,6 @@ class Keyboard extends events.EventEmitter{
 		//the midi input
 		this._midi = new Midi()
 		this._midi.on('keyDown', (note) => {
-			const splash = document.getElementById("splash");
-			splash.classList.add('disappear');
-			container.classList.add('focus');
 			this.keyDown(note);
 			this._emitKeyDown(note);
 		});
@@ -114,6 +111,9 @@ class Keyboard extends events.EventEmitter{
 		if (!this._active){
 			return
 		}
+		const splash = document.getElementById("splash");
+		splash.classList.add('disappear');
+		container.classList.add('focus');
 		if (!this._currentKeys[note]){
 			this._currentKeys[note] = 0	
 		}
