@@ -42,7 +42,7 @@ $topMargin: 35px;
 			font-weight: 300;
 		}
 
-		#subTitle, #howItWorks {
+		#germanSubTitle, #germanHowItWorks {
 			margin-top: $topMargin;
 			letter-spacing: 0.8px;
 			line-height: 30px;
@@ -53,7 +53,7 @@ $topMargin: 35px;
 			text-align: center;
 			font-weight: 300;
 		}
-		#germanSubTitle {
+		#subTitle {
 			margin-top: 0px;
 			letter-spacing: 0.8px;
 			line-height: 30px;
@@ -63,32 +63,35 @@ $topMargin: 35px;
 			margin-right: auto;
 			text-align: center;
 			font-weight: 300;
-		}
-
-		#howItWorks {
-			$size : 20px;
-			$margin: 30px;
-
-			color: $orange;
-			width: auto;
-			display: inline-block;
-			margin-left: $margin;
+			font-style: italic;
 		}
 
 		#germanHowItWorks {
 			$size : 20px;
+			$margin: 30px;
+
+			color: $orange;
+			width: 100&;
+			display: inline-block;
+			text-align: center;
+			/*margin-left: $margin;*/
+		}
+
+		#howItWorks {
+			$size : 20px;
 			$margin: 0px;
 
 			color: $orange;
-			width: auto;
+			width: 100%;
 			display: inline-block;
-			margin-left: $margin;
+			/*margin-left: $margin;*/
 			letter-spacing: 0.8px;
 			line-height: 30px;
 			font-size: 15px;
-			margin-right: auto;
-			text-align: cenasdter;
+			/*margin-right: auto;*/
+			text-align: center;
 			font-weight: 300;
+			font-style: italic;
 		}
 
 		$loaderWidth: 398px;
