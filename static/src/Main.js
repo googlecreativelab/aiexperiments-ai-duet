@@ -38,6 +38,7 @@ splash.on('about', () => {
 about.on('close', () => {
 	if (!splash.loaded || splash.isOpen()){
 		splash.show()
+		keyboard._active = true
 	} else {
 
 		keyboard.activate()
@@ -54,6 +55,7 @@ about.on('open', () => {
 const idleTimeout = new IdleTimeout(
 	() => {
 		keyboard.deactivate();
+		about.close();
 		splash.show();
 		keyboard._active = true;
 	  },

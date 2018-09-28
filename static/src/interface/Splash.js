@@ -63,6 +63,14 @@ class Splash extends events.EventEmitter{
 		howItWorks.innerHTML = 'This experiment lets you play a duet with the computer.<br>Just play some notes, and the computer will respond to your melody.'
 		germanHowItWorks.innerHTML = 'In diesem Experiment kannst du ein Duett mit dem Computer spielen.<br>Spiele einfach ein paar Noten und der Computer reagiert auf deine Melodie.'
 
+        const aboutPageLink = document.createElement('div')
+		aboutPageLink.id = 'aboutPageLink'
+		titleContainer.appendChild(aboutPageLink)
+		aboutPageLink.textContent = 'How it works'
+		aboutPageLink.addEventListener('click', () => {
+			this.emit('about')
+		})
+
 		const badges = document.createElement('div')
 		badges.id = 'badges'
 		splash.appendChild(badges)

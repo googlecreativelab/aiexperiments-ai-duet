@@ -23,12 +23,28 @@ const tfLink = 'https://www.tensorflow.org/'
 const toneLink = 'https://github.com/Tonejs/Tone.js'
 const sourceCode = 'https://github.com/googlecreativelab/aiexperiments-ai-duet'
 
-const blurbCopy = `Built by Yotam Mann with friends on the Magenta and Creative Lab teams at Google. 
-					It uses <a target='_blank' href='${tfLink}'>TensorFlow</a>,
-					<a target='_blank' href='${toneLink}'>Tone.js</a> and tools 
-					from the <a target='_blank' href='${magentaLink}'>Magenta project</a>. 
-					The open-source code is <a target='_blank' href='${sourceCode}'>available here</a>.
-					Click the keyboard, use your computer keys, or even plug in a MIDI keyboard.`
+const germanAboutCopy = `AI Duet nutzt maschinelles Lernen, um zu entscheiden, 
+						 wie es auf die Noten reagiert, die du spielst. Dafür wurde
+						 das neuronale Netz mit einer Vielzahl an Melodien trainiert. 
+						 das neuronale Netz mit einer Vielzahl an Melodien trainiert. 
+						 Noten and Takten. Regeln dafür, wie Noten oder Akkorde
+						 verarbeitet werden sollen, wurden dem System nicht gegeben.`
+
+const englishAboutCopy = `AI Duet uses machine learning in order to decide on 
+						  how it responds to the notes you play. To do so,
+						  a neural network was trained with lots of melodies. 
+						  Over time, the system learned about relationships 
+						  between notes and timing. No rules predefine how
+						  notes or chords should be treated.`
+
+
+const germanMadeByCopy = `Programmierung und Konzept: Yotam Mann und Google’s 
+						  Creative Lab. Neuronales Netz: Google’s Magenta project.
+						  Der gesamte Quellcode ist Open Source: g.co/aiexperiments`
+
+const englishMadeByCopy = `Programming and Concept: Yotam Mann and Google’s 
+						   Creative Lab. Neural net: Google’s Magenta project.
+						   All the code is open source: g.co/aiexperiments`
 
 export class About extends events.EventEmitter{
 	constructor(container){
@@ -59,13 +75,13 @@ export class About extends events.EventEmitter{
 		const title = document.createElement('div')
 		title.id = 'title'
 		title.textContent = 'A.I. Duet'
-		// content.appendChild(title)
+		content.appendChild(title)
 
 		const video = document.createElement('div')
 		video.id = 'video'
-		//vid YT0k99hCY5I 
+		//vid YT0k99hCY5I
 		video.innerHTML = `<iframe id='youtube-iframe' src="https://www.youtube.com/embed/0ZE1bfPtvZo?modestbranding=0&showinfo=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>`
-		content.appendChild(video)
+		// content.appendChild(video)
 
 		this._ytplayer = null
 
@@ -84,21 +100,38 @@ export class About extends events.EventEmitter{
 			})
 		})
 
-		const blurb = document.createElement('div')
-		blurb.id = 'blurb'
-		content.appendChild(blurb)
-		blurb.innerHTML = blurbCopy
+		const germanAbout = document.createElement('div')
+		germanAbout.id = 'germanAbout'
+		content.appendChild(germanAbout)
+		germanAbout.innerHTML = germanAboutCopy
+
+		const englishAbout = document.createElement('div')
+		englishAbout.id = 'englishAbout'
+		content.appendChild(englishAbout)
+		englishAbout.innerHTML = englishAboutCopy
+
+		const germanMadeBy = document.createElement('div')
+		germanMadeBy.id = 'germanMadeBy'
+		content.appendChild(germanMadeBy)
+		germanMadeBy.innerHTML = germanMadeByCopy
+
+		const englishMadeBy = document.createElement('div')
+		englishMadeBy.id = 'englishMadeBy'
+		content.appendChild(englishMadeBy)
+		englishMadeBy.innerHTML = englishMadeByCopy
 
 	}
+
+
 	close(){
 		this._toggleButton.classList.remove('close')
 		this._toggleButton.classList.add('open')
 
 		this._container.classList.remove('visible')
 
-		if (this._ytplayer && this._ytplayer.stopVideo){
-			this._ytplayer.stopVideo()
-		}
+		// if (this._ytplayer && this._ytplayer.stopVideo){
+		// 	this._ytplayer.stopVideo()
+		// }
 		this.emit('close')
 		if (window.ga){
 			ga('send', 'event', 'AI-Duet', 'Click', 'About - Close')
@@ -108,25 +141,25 @@ export class About extends events.EventEmitter{
 		this._toggleButton.classList.add('close')
 		this._toggleButton.classList.remove('open')
 
-		this._playButton.classList.add('visible')
+		// this._playButton.classList.add('visible')
 		this._container.classList.add('visible')
 		this.emit('open')
 		if (window.ga){
 			ga('send', 'event', 'AI-Duet', 'Click', 'About - Open')
 		}
-		if (play){
-			this._playVideo()
-		}
+		// if (play){
+		// 	this._playVideo()
+		// }
 	}
 	// waits until the player is ready to play the video, 
 	// otherwise goes back into waiting loop
-	_playVideo(retries=0){
-		if (this._ytplayer && this._ytplayer.playVideo){
-			this._ytplayer.playVideo()
-		} else if (retries < 10 && this.isOpen()){
-			setTimeout(() => this._playVideo(retries+1), 200);
-		}	
-	}
+	// _playVideo(retries=0){
+	// 	if (this._ytplayer && this._ytplayer.playVideo){
+	// 		this._ytplayer.playVideo()
+	// 	} else if (retries < 10 && this.isOpen()){
+	// 		setTimeout(() => this._playVideo(retries+1), 200);
+	// 	}
+	// }
 	isOpen(){
 		return this._container.classList.contains('visible')
 	}

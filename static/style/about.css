@@ -91,7 +91,7 @@
 			font-family: $font-family;
 			font-size: 40px;
 			line-height: 30px;
-			margin: 20px 0px 30px 0px;
+			margin: 130px 0px 50px 0px;
 			position: relative;
 		}
 
@@ -143,17 +143,38 @@
 			}
 		}
 
-		#blurb {
-
+		#germanAbout {
 			position: relative;
 			text-transform: none;
 			margin-top: 50px;
-			font-size: 14px;
+			font-size: 18px;
 			line-height: 25px;
+		}
 
-			a {
-				color: $orange;
-			}
+		#englishAbout {
+			position: relative;
+			text-transform: none;
+			margin-top: 10px;
+			font-size: 18px;
+			line-height: 25px;
+			font-style: italic;
+		}
+
+		#germanMadeBy {
+			position: relative;
+			text-transform: none;
+			margin-top: 50px;
+			font-size: 18px;
+			line-height: 25px;
+		}
+
+		#englishMadeBy {
+			position: relative;
+			text-transform: none;
+			margin-top: 10px;
+			font-size: 18px;
+			line-height: 25px;
+			font-style: italic;
 		}
 
 	}
