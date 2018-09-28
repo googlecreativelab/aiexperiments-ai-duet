@@ -41,8 +41,8 @@ class Splash extends events.EventEmitter{
 		const germanSubTitle = document.createElement('div')
 		subTitle.id = 'subTitle'
 		germanSubTitle.id = 'germanSubTitle'
-		titleContainer.appendChild(subTitle)
 		titleContainer.appendChild(germanSubTitle)
+		titleContainer.appendChild(subTitle)
 		subTitle.textContent = 'A piano that responds to you.'
 		germanSubTitle.textContent = ' Ein Klavier, das auf Ihre Eingaben antwortet.'
 
@@ -58,10 +58,10 @@ class Splash extends events.EventEmitter{
 		const germanHowItWorks = document.createElement('div')
 		howItWorks.id = 'howItWorks'
 		germanHowItWorks.id = 'germanHowItWorks'
-		titleContainer.appendChild(howItWorks)
 		titleContainer.appendChild(germanHowItWorks)
-		howItWorks.textContent = 'This experiment lets you play a duet with the computer. Just play some notes, and the computer will respond to your melody.'
-		germanHowItWorks.textContent = 'Mit diesem Experiment können Sie ein Duett mit dem Computer spielen. Spielen Sie einfach ein paar Noten und der Computer reagiert auf Ihre Melodie.'
+		titleContainer.appendChild(howItWorks)
+		howItWorks.innerHTML = 'This experiment lets you play a duet with the computer.<br>Just play some notes, and the computer will respond to your melody.'
+		germanHowItWorks.innerHTML = 'In diesem Experiment kannst du ein Duett mit dem Computer spielen.<br>Spiele einfach ein paar Noten und der Computer reagiert auf deine Melodie.'
 
 		const badges = document.createElement('div')
 		badges.id = 'badges'
