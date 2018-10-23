@@ -25,37 +25,37 @@ import 'babel-polyfill'
 import IdleTimeout from 'idle-timeout'
 
 /////////////// SPLASH ///////////////////
-const about = new About(document.body)
+// const about = new About(document.body)
 const splash = new Splash(document.body)
 splash.on('click', () => {
 	keyboard.activate()
 	tutorial.start()
-	about.showButton()
+	// about.showButton()
 })
-splash.on('about', () => {
-	about.open(true)
-})
-about.on('close', () => {
-	if (!splash.loaded || splash.isOpen()){
-		splash.show()
-		keyboard._active = true
-	} else {
-
-		keyboard.activate()
-	}
-})
-about.on('open', () => {
-	keyboard.deactivate()
-	if (splash.isOpen()){
-		splash.hide()
-	}
-})
+// splash.on('about', () => {
+// 	about.open(true)
+// })
+// about.on('close', () => {
+// 	if (!splash.loaded || splash.isOpen()){
+// 		splash.show()
+// 		keyboard._active = true
+// 	} else {
+//
+// 		keyboard.activate()
+// 	}
+// })
+// about.on('open', () => {
+// 	keyboard.deactivate()
+// 	if (splash.isOpen()){
+// 		splash.hide()
+// 	}
+// })
 
 //////////////// IDLE TIMER ///////////////
 const idleTimeout = new IdleTimeout(
 	() => {
 		keyboard.deactivate();
-		about.close();
+		// about.close();
 		splash.show();
 		keyboard._active = true;
 	  },

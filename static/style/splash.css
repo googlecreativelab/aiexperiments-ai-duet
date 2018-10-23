@@ -271,12 +271,12 @@ $topMargin: 35px;
 
 		#aiExperiments {
 			background-image: url(../images/badgeAI_master.svg);
-			&:hover {
-				opacity: 1;
-				&:active {
-					opacity: 0.3;
-				}
-			}
+			/*&:hover {*/
+				/*opacity: 1;*/
+				/*&:active {*/
+					/*opacity: 0.3;*/
+				/*}*/
+			/*}*/
 		}
 
 		#googleFriends {
@@ -293,9 +293,9 @@ $topMargin: 35px;
 		    margin-right: 0px;
 		    color: white;
 
-			&:hover {
-				opacity: 1;
-			}
+			/*&:hover {*/
+				/*opacity: 1;*/
+			/*}*/
 
 			@media (max-width: $smallScreen) {
 				font-size: 7px;
@@ -338,10 +338,10 @@ $topMargin: 35px;
 				span {
 					color: $orange;
 					text-decoration: underline;
-					cursor: pointer;
-					&:hover:active {
-						color: white;
-					}
+					/*cursor: pointer;*/
+					/*&:hover:active {*/
+						/*color: white;*/
+					/*}*/
 				}
 			}
 
@@ -400,15 +400,15 @@ $topMargin: 35px;
 
 		a {
 			text-decoration: none;
-			cursor: pointer;
+			/*cursor: pointer;*/
 
-			&:hover {
-				opacity: 1;
+			/*&:hover {*/
+				/*opacity: 1;*/
 
-				&:active {
-					opacity: 0.3;
-				}
-			}
+				/*&:active {*/
+					/*opacity: 0.3;*/
+				/*}*/
+			/*}*/
 		}
 	}
 }

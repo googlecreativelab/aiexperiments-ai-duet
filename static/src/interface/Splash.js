@@ -60,16 +60,16 @@ class Splash extends events.EventEmitter{
 		germanHowItWorks.id = 'germanHowItWorks'
 		titleContainer.appendChild(germanHowItWorks)
 		titleContainer.appendChild(howItWorks)
-		howItWorks.innerHTML = 'This experiment lets you play a duet with the computer.<br>Just play some notes, and the computer will respond to your melody.'
-		germanHowItWorks.innerHTML = 'In diesem Experiment kannst du ein Duett mit dem Computer spielen.<br>Spiele einfach ein paar Noten und der Computer reagiert auf deine Melodie.'
+		howItWorks.innerHTML = 'This experiment lets you play a duet with a computer using machine learning.<br>Just play some notes and the computer will respond to your melody.<br>Over time, the system learns about the relationships<br>between notes and timing to play better duets.'
+		germanHowItWorks.innerHTML = 'Mithilfe von maschinellem Lernen kannst du bei diesem Projekt<br>mit dem Computer im Duett spielen. Wenn du eine Melodie anstimmst,<br>wird der Algorithmus auf diese Noten reagieren. Im Laufe der Zeit erlernt<br>das System Bezüge zwischen Noten und Takten und verbessert sein Ergebnisse.'
 
-        const aboutPageLink = document.createElement('div')
-		aboutPageLink.id = 'aboutPageLink'
-		titleContainer.appendChild(aboutPageLink)
-		aboutPageLink.textContent = 'How it works'
-		aboutPageLink.addEventListener('click', () => {
-			this.emit('about')
-		})
+        // const aboutPageLink = document.createElement('div')
+		// aboutPageLink.id = 'aboutPageLink'
+		// titleContainer.appendChild(aboutPageLink)
+		// aboutPageLink.textContent = 'How it works'
+		// aboutPageLink.addEventListener('click', () => {
+		// 	this.emit('about')
+		// })
 
 		const badges = document.createElement('div')
 		badges.id = 'badges'
@@ -77,7 +77,7 @@ class Splash extends events.EventEmitter{
 
 		const aiExperiments = document.createElement('a')
 		aiExperiments.id = 'aiExperiments'
-		aiExperiments.href = 'https://aiexperiments.withgoogle.com'
+		// aiExperiments.href = 'https://aiexperiments.withgoogle.com'
 		aiExperiments.target = '_blank'
 		aiExperiments.classList.add('badge')
 		badges.appendChild(aiExperiments)
@@ -98,7 +98,7 @@ class Splash extends events.EventEmitter{
 		badges.appendChild(break1)
 
 		const magenta = document.createElement('a')
-		magenta.href = 'https://magenta.tensorflow.org/'
+		// magenta.href = 'https://magenta.tensorflow.org/'
 		magenta.target = '_blank'
 		magenta.id = 'magentaLink'
 		magenta.classList.add('badge')
@@ -106,10 +106,11 @@ class Splash extends events.EventEmitter{
 		magenta.innerHTML = imgHtml + '<div id="text">Built using <span>Magenta</span></div>'
 		badges.appendChild(magenta)
 
-		const privacyAndTerms = document.createElement('div')
-		privacyAndTerms.id = 'privacyAndTerms'
-		privacyAndTerms.innerHTML = '<a target="_blank" href="https://www.google.com/intl/en/policies/privacy/">Privacy</a><span>&</span><a target="_blank" href="https://www.google.com/intl/en/policies/terms/">Terms</a>'
-		splash.appendChild(privacyAndTerms)
+		// const privacyAndTerms = document.createElement('div')
+		// privacyAndTerms.id = 'privacyAndTerms'
+		// // privacyAndTerms.innerHTML = '<a target="_blank" href="https://www.google.com/intl/en/policies/privacy/">Privacy</a><span>&</span><a target="_blank" href="https://www.google.com/intl/en/policies/terms/">Terms</a>'
+		// privacyAndTerms.innerHTML = '<a target="_blank">Privacy</a><span>&</span><a target="_blank">Terms</a>'
+		// splash.appendChild(privacyAndTerms)
 
 	}
 
