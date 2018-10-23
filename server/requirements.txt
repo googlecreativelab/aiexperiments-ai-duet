@@ -1,5 +1,5 @@
-tensorflow==0.12.1
-magenta==0.1.8
+tensorflow
+magenta
 Flask==0.12
 gunicorn==19.6.0
 ipython==5.1.0
