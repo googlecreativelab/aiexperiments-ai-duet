@@ -48,14 +48,14 @@ class Midi extends events.EventEmitter{
 			})
 			inputDevice.addListener('noteon', 'all', (event) => {
 				try {
-					this.emit('keyDown', event.note.number)
+					this.emit('keyDown', event.note.number + 12)
 				} catch(e){
 					console.warn(e)
 				}
 			})
 			inputDevice.addListener('noteoff', 'all',  (event) => {
 				try {
-					this.emit('keyUp', event.note.number)
+					this.emit('keyUp', event.note.number + 12)
 				} catch(e){
 					console.warn(e)
 				}
