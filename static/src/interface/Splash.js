@@ -44,7 +44,7 @@ class Splash extends events.EventEmitter{
 		titleContainer.appendChild(germanSubTitle)
 		titleContainer.appendChild(subTitle)
 		subTitle.textContent = 'A piano that responds to you.'
-		germanSubTitle.textContent = ' Ein Klavier, das auf Ihre Eingaben antwortet.'
+		germanSubTitle.textContent = ' Ein Klavier, das auf deine Eingaben antwortet.'
 
 		this._clicked = false
 		const loader = this._loader = new Loader(titleContainer)
@@ -61,7 +61,7 @@ class Splash extends events.EventEmitter{
 		titleContainer.appendChild(germanHowItWorks)
 		titleContainer.appendChild(howItWorks)
 		howItWorks.innerHTML = 'This experiment lets you play a duet with a computer using machine learning.<br>Just play some notes and the computer will respond to your melody.<br>Over time, the system learns about the relationships<br>between notes and timing to play better duets.'
-		germanHowItWorks.innerHTML = 'Mithilfe von maschinellem Lernen kannst du bei diesem Projekt<br>mit dem Computer im Duett spielen. Wenn du eine Melodie anstimmst,<br>wird der Algorithmus auf diese Noten reagieren. Im Laufe der Zeit erlernt<br>das System Bezüge zwischen Noten und Takten und verbessert sein Ergebnisse.'
+		germanHowItWorks.innerHTML = 'Mithilfe von maschinellem Lernen kannst du bei diesem Projekt<br>mit dem Computer im Duett spielen. Wenn du eine Melodie anstimmst,<br>wird der Algorithmus auf diese Noten reagieren. Im Laufe der Zeit erlernt<br>das System Bezüge zwischen Noten und Takten und verbessert seine Ergebnisse.<br><br>'
 
         // const aboutPageLink = document.createElement('div')
 		// aboutPageLink.id = 'aboutPageLink'
