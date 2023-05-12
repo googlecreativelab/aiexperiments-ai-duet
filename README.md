@@ -60,7 +60,7 @@ You can now play with A.I. Duet at [localhost:8080](http://localhost:8080).
 
 ## MIDI SUPPORT
 
-The A.I. Duet supports MIDI keyboard input using [Web Midi API](https://webaudio.github.io/web-midi-api/) and the [WebMIDI](https://github.com/cotejp/webmidi) library. 
+The A.I. Duet supports MIDI keyboard input using [Web Midi API](https://webaudio.github.io/web-midi-api/) and the [WebMidi.js](https://github.com/djipco/webmidi) library. 
 
 ## PIANO KEYBOARD
 
