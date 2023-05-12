@@ -63,6 +63,16 @@ class AI extends events.EventEmitter{
 						this.emit('keyUp', note.midi, note.noteOff + now)
 					}
 				})
+				// We added another track to the midi file that contains data we want to send back to the client
+				// the first note of this new track is used as a bool value for happy/sad
+				if (response.tracks[2]['notes'][0]['midi'] === 0) {
+					console.log('happy')
+					window.isSad = 0;
+				}
+				else if (response.tracks[2]['notes'][0]['midi'] === 1) {
+					console.log('sad')
+					window.isSad = 1;
+				}
 			})
 			this._lastPhrase = -1
 			this.emit('sent')
