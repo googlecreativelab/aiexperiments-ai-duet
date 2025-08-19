@@ -30,6 +30,14 @@ Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta an
 
 A.I. Duet is composed of two parts, the front-end which is in the `static` folder and the back-end which is in the `server` folder. The front-end client creates short MIDI files using the players's input which is sent to a [Flask](http://flask.pocoo.org/) server. The server takes that MIDI input and "continues" it using [Magenta](https://github.com/tensorflow/magenta) and [TensorFlow](https://www.tensorflow.org/) which is then returned back to the client. 
 
+## CLONING THE REPOSITORY
+
+To clone the repository, use the following command:
+
+```bash
+gh repo clone googlecreativelab/aiexperiments-ai-duet
+```
+
 ## INSTALLATION
 
 A.I. Duet only works with [Python 2.7](https://www.python.org/download/releases/2.7/) and it was tested with Node v6. There are two basic ways of installing A.I. Duet: with Docker or without Docker.
