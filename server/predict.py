@@ -22,7 +22,7 @@ from magenta.models.melody_rnn import melody_rnn_model
 from magenta.models.melody_rnn import melody_rnn_sequence_generator
 from magenta.protobuf import generator_pb2
 from magenta.protobuf import music_pb2
-
+from usingMusicNN import predictmood
 
 import os
 import time
@@ -68,8 +68,9 @@ def generate_midi(midi_data, total_seconds=10):
 
     # generate the output sequence
     generated_sequence = generator.generate(primer_sequence, generator_options)
-
+    
     output = tempfile.NamedTemporaryFile()
     magenta.music.midi_io.sequence_proto_to_midi_file(generated_sequence, output.name)
     output.seek(0)
     return output
+    

@@ -15,9 +15,10 @@
 		}
 	}
 
-	$glowReach : 60%;
+	/*$glowReach : 60%;*/
+	$glowReach : 80%;
 
-	#ai {
+	/*#ai {
 		opacity: 0;
 		background-image: radial-gradient(ellipse farthest-corner at 50% 0px, $orange 0%, black $glowReach);
 	}
@@ -25,5 +26,15 @@
 	#user {
 		opacity: 0;
 		background-image: radial-gradient(ellipse farthest-corner at 50% 0px, $blue 0%, black $glowReach);
+	}*/
+
+	.happy {
+		opacity: 0;
+		background-image: radial-gradient(ellipse farthest-corner at 50% 0px, $green 0%, black $glowReach);
+	}
+
+	.sad {
+		opacity: 0;
+		background-image: radial-gradient(ellipse farthest-corner at 50% 0px, $red 0%, black $glowReach);
 	}
 }

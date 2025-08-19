@@ -45,12 +45,30 @@ class Glow {
 				this._aiVisible = false
 				this._aiGlow.classList.remove('visible')
 				this._userGlow.classList.add('visible')
+				// Update the class of glow to show the correct color
+				if (window.isSad) {
+					this._userGlow.classList.add('sad')
+					this._userGlow.classList.remove('happy')
+				}
+				else {
+					this._userGlow.classList.add('happy')
+					this._userGlow.classList.remove('sad')
+				}
 			}
 		} else {
 			if (!this._aiVisible){
 				this._aiVisible = true
 				this._aiGlow.classList.add('visible')
 				this._userGlow.classList.remove('visible')
+				// Update the class of glow to show the correct color
+				if (window.isSad) {
+					this._userGlow.classList.add('sad')
+					this._userGlow.classList.remove('happy')
+				}
+				else {
+					this._userGlow.classList.add('happy')
+					this._userGlow.classList.remove('sad')
+				}
 			}
 		}
 	}
